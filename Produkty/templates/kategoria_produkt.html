@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<!-- extends musi znajdowac sie na samej gorze strony. Informuje jaki templte bedzie poszerzany niniejszym -->
+{% extends 'szablon.html' %}
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <!-- zawartosc bloku bedzie podmieniac fragment szablon.html.
+     Block i endblock to slowa klucze django -->
+    {% block produkt %}
+
+    {% if kategoria_produkt %}
+        {% for produkt in kategoria_produkt %}
+            <p><a href = "/produkt/{{ produkt.id }}/"> {{ produkt.nazwa }} </a></p>
+        {% endfor %}
+    {% else %}
+    {% endif %}
+
+    {% endblock %}
+
+</body>
+</html>
